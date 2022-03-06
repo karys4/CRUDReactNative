@@ -13,19 +13,28 @@ import { MyContext } from '../../App';
 
 const VistaGeneral = ({navigation}) => {
     const [informacion, setInformacion] = React.useState([]);
-    const {usuarios} = React.useContext(MyContext)
+    const {usuarios, deleteData} = React.useContext(MyContext)
 
 
     React.useEffect(() => {
+        traerInformacion();
+    }, []);
 
         const traerInformacion = async () => {
             /*const response = await axios.get('https://9bea-45-6-63-88.ngrok.io/api/users');
             console.log(response);*/
     
         };
+
+        const eliminarElemento = async (idx) => {
+            /*const response = await axios.delete(`url/users/${id}`)*/
+            deleteData(idx);
+        }
+
+        
         console.log("Se está ejecutando desde use effect");
         traerInformacion();
-    }, []);
+    
     
 
     return (
@@ -37,7 +46,7 @@ const VistaGeneral = ({navigation}) => {
                         <Text>{usuario.email}</Text>
                         <Text>{usuario.age}</Text>
                         <TouchableOpacity>
-                            <Text style={styles.eliminar}>Eliminar</Text>
+                            <Text onPress={() => eliminarElemento(idx)} style={styles.eliminar}>Eliminar</Text>
                         </TouchableOpacity>  
                         <TouchableOpacity>
                             <Text onPress={() => navigation.navigate('Vista Actualizar', {itemId: idx, })} style={styles.actualizar}>Actualizar</Text>
