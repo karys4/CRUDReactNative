@@ -1,3 +1,7 @@
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const MyNavegacion = createNativeStackNavigator();
+
 const array = [
 {
     name: "Kary",
