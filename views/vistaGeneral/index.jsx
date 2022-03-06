@@ -30,7 +30,7 @@ const VistaGeneral = ({navigation}) => {
 
     return (
      <View>
-        {usuarios.map((usuario) => {
+        {usuarios.map((usuario, idx) => {
                 return (
                     <View style={styles.usuario}>
                         <Text>{usuario.name}</Text>
@@ -39,12 +39,14 @@ const VistaGeneral = ({navigation}) => {
                         <TouchableOpacity>
                             <Text style={styles.eliminar}>Eliminar</Text>
                         </TouchableOpacity>  
+                        <TouchableOpacity>
+                            <Text onPress={() => navigation.navigate('Vista Actualizar', {itemId: idx, })} style={styles.actualizar}>Actualizar</Text>
+                        </TouchableOpacity>  
                     </View>
                 );
             })}
         
         <Button title="Crear" onPress={() => navigation.navigate('Vista Crear')}/>
-        <Button title="Actualizar información" onPress={() => traerInformacion()}/>
 
     </View>
     );

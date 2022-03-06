@@ -56,6 +56,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#f4f4f4',
     }
-})
+});
 
 export default VistaCrear;

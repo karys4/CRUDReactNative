@@ -46,8 +46,14 @@ export default function App() {
     setListaUsuarios([...listaUsuario, usuario]);
   }
 
+  const putData = (usuario, indice) => {
+    const listaCopia = listaUsuario;
+    listaCopia.splice(indice, 1, usuario);
+    setListaUsuarios([...listaCopia]);
+  };
+
   return (
-    <MyContext.Provider value={{usuarios: listaUsuario, postData}}>
+    <MyContext.Provider value={{usuarios: listaUsuario, postData, putData}}>
     <NavigationContainer>
       <MyNavegacion.Navigator> 
         <MyNavegacion.Screen name='Vista General' component={VistaGeneral}/>
